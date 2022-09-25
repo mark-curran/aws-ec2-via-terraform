@@ -1,0 +1,54 @@
+# TODO: Add variables file.
+# TODO: Add module docstring.
+# TODO: Add README.md
+
+variable "namespace" {}
+variable vpc_id {}
+
+resource "aws_security_group" "public_sg" {
+  name        = "public_sg"
+  description = "Limit inbound traffic, allow all outbound traffic."
+  vpc_id      = var.vpc_id
+
+  ingress {
+    description = "Pingable from anywhere."
+    protocol    = "icmp"
+    from_port   = -1
+    to_port     = -1
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow inbound HTTP traffic."
+    protocol    = "tcp"
+    from_port   = 80
+    to_port     = 80
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow inbound SSH traffic."
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "Allow all outbound traffic."
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name      = "${var.namespace}-public-sg"
+    Namespace = var.namespace
+  }
+}
+
+output "public_sg_id" {
+  value = aws_security_group.public_sg.id
+  description = "Id of the public security group."
+}
