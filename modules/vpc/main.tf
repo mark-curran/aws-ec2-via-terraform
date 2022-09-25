@@ -1,5 +1,13 @@
+# TODO: Add variables file.
+# TODO: Add module docstring.
+# TODO: Add README.md
+
+variable "namespace" {}
+variable "vpc_cidr" {}
+variable "public_subnet_cidr" {}
+
 resource "aws_vpc" "vpc" {
-  cidr_block                       = var.cidr
+  cidr_block                       = var.vpc_cidr
   instance_tenancy                 = "default"
   enable_dns_hostnames = true
 
@@ -56,4 +64,14 @@ resource "aws_route_table_association" "public_route_table_association" {
   subnet_id      = aws_subnet.public_subnet.id
 
   depends_on = [aws_subnet.public_subnet, aws_route_table.public_route_table]
+}
+
+output "vpc_id" {
+  value = aws_vpc.vpc.id
+  description = "The id of the VPC this module creates."
+}
+
+output "public_subnet_id" {
+  value = aws_subnet.public_subnet.id
+  description = "The id of the public subnet."
 }

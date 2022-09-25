@@ -1,3 +1,8 @@
+<!-- 
+TODO: Note that backend is created locally.
+TODO: emphasize that we create a launch config, not an instance.
+ -->
+
 # AWS Sandbox EC2 Instance using Terraform
 
 Terraform template to create a AWS Virtual Private Cloud running a single EC2

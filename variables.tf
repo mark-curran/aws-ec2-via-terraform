@@ -1,16 +1,17 @@
 variable "region" {
   type    = string
-  default = "ap-southeast-2"
+  description = "The AWS region where the infrastructure will be created."
 }
 
-variable "cidr" {
+variable "vpc_cidr" {
   type    = string
-  default = "10.0.0.0/16"
+  description = "The cidr block of the VPC that the public subnet will reside in."
 }
 
 variable "public_subnet_cidr" {
   type    = string
-  default = "10.0.1.0/24"
+  # TODO: Add description.
+  # description = "value"
 }
 
 variable "namespace" {
@@ -20,5 +21,5 @@ variable "namespace" {
 
 variable "key_name" {
   type = string
-  description = "The name of the AWS key ssh into the EC2 instances."
+  description = "The name of the AWS key used to ssh into the EC2 instances."
 }

@@ -1,11 +1,19 @@
+# TODO: Add variables file.
+# TODO: Add module docstring.
+# TODO: Add README.md
+
+variable "launch_conf_name" {}
+variable "namespace" {}
+variable "public_subnet_id" {}
+
 resource "aws_autoscaling_group" "autoscaling_group" {
   name                = "${var.namespace}-asg"
   max_size            = 1
   min_size            = 0
-  vpc_zone_identifier = [aws_subnet.public_subnet.id]
+  vpc_zone_identifier = [var.public_subnet_id]
   default_cooldown    = 120
 
-  launch_configuration = aws_launch_configuration.launch_conf.name
+  launch_configuration = var.launch_conf_name
 
 }
 
