@@ -31,7 +31,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_network_packets_in" {
   evaluation_periods  = "4"
   metric_name         = "NetworkPacketsIn"
   namespace           = "AWS/EC2"
-  period              = "300"
+  period              = "1800"
   statistic           = "Average"
   threshold           = "10"
 
