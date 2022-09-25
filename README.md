@@ -29,7 +29,7 @@ In order to connect to the EC2 instance run the command
 
 `bash ./scripts/ec2_connect.sh PathToPrivateKey`
 
-Where _PathToPrivateKey_ is the path to the private key file. 
+Where _PathToPrivateKey_ is the path to the private key file.
 
 If you are running the script for the first time, then a new instance takes about 1 minute to become available. Re-run the script again after 1 minute to connect to the recently created ec2 instance.
 
