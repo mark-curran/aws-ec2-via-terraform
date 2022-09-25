@@ -33,6 +33,6 @@ module "launch_conf" {
 module "autoscaling" {
   source = "./modules/autoscaling"
   namespace = var.namespace
-  public_subnet_id = module.vpc.public_subnet_id
+  subnet_id = module.vpc.public_subnet_id
   launch_conf_name = module.launch_conf.launch_conf_name
 }

@@ -1,10 +1,3 @@
-# TODO: Add variables file.
-# TODO: Add module docstring.
-# TODO: Add README.md
-
-variable "namespace" {}
-variable vpc_id {}
-
 resource "aws_security_group" "public_sg" {
   name        = "public_sg"
   description = "Limit inbound traffic, allow all outbound traffic."
@@ -46,9 +39,4 @@ resource "aws_security_group" "public_sg" {
     Name      = "${var.namespace}-public-sg"
     Namespace = var.namespace
   }
-}
-
-output "public_sg_id" {
-  value = aws_security_group.public_sg.id
-  description = "Id of the public security group."
 }

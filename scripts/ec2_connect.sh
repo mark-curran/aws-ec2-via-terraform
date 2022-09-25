@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Connect to the EC2 instance if it exists, otherwise start a new EC2
 # instance.
 # Args:
@@ -45,17 +44,3 @@ main () {
 }
 
 main "$1"
-
-stop_all_instances() {
-    
-    # This function stops all instances in the VPC.
-    local namespace=$( echo "$(terraform output namespace | tr -d \")")
-    
-    echo "Executing autoscaling-policy-stop-all"
-
-    aws autoscaling execute-policy \
-    --auto-scaling-group-name $namespace-asg \
-    --policy-name $namespace-autoscaling-policy-stop-all
-}
-
-# stop_all_instances
