@@ -65,13 +65,3 @@ resource "aws_route_table_association" "public_route_table_association" {
 
   depends_on = [aws_subnet.public_subnet, aws_route_table.public_route_table]
 }
-
-output "vpc_id" {
-  value = aws_vpc.vpc.id
-  description = "The id of the VPC this module creates."
-}
-
-output "public_subnet_id" {
-  value = aws_subnet.public_subnet.id
-  description = "The id of the public subnet."
-}

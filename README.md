@@ -1,12 +1,18 @@
 <!-- 
 TODO: Note that backend is created locally.
 TODO: emphasize that we create a launch config, not an instance.
+TODO: Include information on the `aws ec2 describe-key-pairs` command to get the name of the key pair.
+TODO: Restructure modules to conform to: https://www.terraform.io/language/modules/develop/structure
  -->
 
 # AWS Sandbox EC2 Instance using Terraform
 
 Terraform template to create a AWS Virtual Private Cloud running a single EC2
 instance.
+
+# Project Status
+
+This project is publically available and the core functionality is complete, however the documentation is still a work in progress.
 
 # Requirements
 
